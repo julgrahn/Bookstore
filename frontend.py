@@ -33,10 +33,11 @@ def deleteEntry():
     backend.delete(selectedTuple[0])
 
 def updateEntry():
-    backend.update(selectedTuple[0], selectedTuple[1], selectedTuple[2], selectedTuple[3], selectedTuple[4])
-    print(selectedTuple[0], selectedTuple[1], selectedTuple[2], selectedTuple[3], selectedTuple[4])
+    backend.update(selectedTuple[0], titleText.get(), authorText.get(), yearText.get(), isbnText.get())
 
 window = Tk()
+
+window.wm_title("Book Store")
 
 l1 = Label(window, text = "Title")
 l1.grid(row = 0, column = 0)
@@ -100,7 +101,7 @@ b5 = Button(window, text = "Delete Selected", width = 12, command = deleteEntry)
 b5.grid(row = 6, column = 3)
 
 
-b6 = Button(window, text = "Close", width = 12)
+b6 = Button(window, text = "Close", width = 12, command = window.destroy)
 b6.grid(row = 7, column = 3)
 
 
