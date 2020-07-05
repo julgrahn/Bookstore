@@ -11,6 +11,10 @@ def searchEntry():
     for row in backend.search(titleText.get(), authorText.get(), yearText.get(), isbnText.get()):
         list1.insert(END, row)
 
+def addEntry():
+    backend.insert(titleText.get(), authorText.get(), yearText.get(), isbnText.get())
+    list1.delete(0, END)
+    list1.insert(END, (titleText.get(), authorText.get(), yearText.get(), isbnText.get()))
 
 window = Tk()
 
@@ -62,7 +66,7 @@ b2 = Button(window, text = "Search Entry", width = 12, command = searchEntry)
 b2.grid(row = 3, column = 3)
 
 
-b3 = Button(window, text = "Add Entry", width = 12)
+b3 = Button(window, text = "Add Entry", width = 12, command = addEntry)
 b3.grid(row = 4, column = 3)
 
 
