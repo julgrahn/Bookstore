@@ -2,17 +2,20 @@ from tkinter import *
 import backend
 
 def getSelectedRow(event):
-    global selectedTuple
-    index = list1.curselection()[0]
-    selectedTuple = list1.get(index)
-    e1.delete(0, END)
-    e1.insert(END, selectedTuple[1])
-    e2.delete(0, END)
-    e2.insert(END, selectedTuple[2])
-    e3.delete(0, END)
-    e3.insert(END, selectedTuple[3])
-    e4.delete(0, END)
-    e4.insert(END, selectedTuple[4])
+    try:
+        global selectedTuple
+        index = list1.curselection()[0]
+        selectedTuple = list1.get(index)
+        e1.delete(0, END)
+        e1.insert(END, selectedTuple[1])
+        e2.delete(0, END)
+        e2.insert(END, selectedTuple[2])
+        e3.delete(0, END)
+        e3.insert(END, selectedTuple[3])
+        e4.delete(0, END)
+        e4.insert(END, selectedTuple[4])
+    except IndexError:
+        pass
 
 def viewCommand():
     list1.delete(0, END)
@@ -55,11 +58,9 @@ titleText = StringVar()
 e1 = Entry(window, textvariable = titleText)
 e1.grid(row = 0, column = 1)
 
-
 authorText = StringVar()
 e2 = Entry(window, textvariable = authorText)
 e2.grid(row = 0, column = 3)
-
 
 yearText = StringVar()
 e3 = Entry(window, textvariable = yearText)
